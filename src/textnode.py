@@ -1,11 +1,8 @@
 class TextNode:
-    def __init__(self, text, text_type, url):
+    def __init__(self, text, text_type, url=None):
         self.text = text
         self.text_type = text_type
-        if not url:
-            self.url = None
-        else:
-            self.url = url
+        self.url = url
 
     def __eq__(self, other):
         if not isinstance(other, TextNode) or not isinstance(self, TextNode):
