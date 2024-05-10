@@ -75,25 +75,25 @@ class ParentNode(HTMLNode):
             html_result += child.to_html()
         html_result += f"</{self.tag}>"
         return html_result
-        
+
                 
-node = LeafNode("p", "This is a paragraph of text.")
-node2 = LeafNode("a", "Click me!", {"href": "https://www.google.com"})
-html_string = node.to_html()
-print(html_string)
-html_string = node2.to_html()
-print(html_string)
+# node = LeafNode("p", "This is a paragraph of text.")
+# node2 = LeafNode("a", "Click me!", {"href": "https://www.google.com"})
+# html_string = node.to_html()
+# print(html_string)
+# html_string = node2.to_html()
+# print(html_string)
 
-node2 = ParentNode(
-    "p",
-    [
-        LeafNode("b", "Bold text"),
-        LeafNode(None, "Normal text"),
-        LeafNode("i", "italic text"),
-        LeafNode(None, "Normal text"),
-    ],
-)
+# node2 = ParentNode(
+#     "p",
+#     [
+#         LeafNode("b", "Bold text"),
+#         LeafNode(None, "Normal text"),
+#         LeafNode("i", "italic text"),
+#         LeafNode(None, "Normal text"),
+#     ],
+# )
 
-html_string = node2.to_html()
-print(html_string)
+# html_string = node2.to_html()
+# print(html_string)
 
