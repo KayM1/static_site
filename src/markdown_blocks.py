@@ -9,6 +9,13 @@ block_type_quote = "quote"
 block_type_olist = "ordered_list"
 block_type_ulist = "unordered_list"
 
+def extract_title(markdown):
+    for line in markdown:
+        if line.startswith("# "):
+            return line
+        else:
+            continue
+    raise Exception("no title header found.")
 
 def markdown_to_blocks(markdown):
     blocks = markdown.split("\n\n")
@@ -155,3 +162,4 @@ def quote_to_html_node(block):
     content = " ".join(new_lines)
     children = text_to_children(content)
     return ParentNode("blockquote", children)
+
