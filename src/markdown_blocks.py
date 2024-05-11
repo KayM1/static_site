@@ -1,6 +1,6 @@
 from htmlnode import ParentNode
 from inline_markdown import text_to_textnodes
-from textnode import text_node_to_html_node
+from textnode import text_node_to_html
 
 block_type_paragraph = "paragraph"
 block_type_heading = "heading"
@@ -10,7 +10,8 @@ block_type_olist = "ordered_list"
 block_type_ulist = "unordered_list"
 
 def extract_title(markdown):
-    for line in markdown:
+    lines = markdown.splitlines()
+    for line in lines:
         if line.startswith("# "):
             return line
         else:
@@ -97,7 +98,7 @@ def text_to_children(text):
     text_nodes = text_to_textnodes(text)
     children = []
     for text_node in text_nodes:
-        html_node = text_node_to_html_node(text_node)
+        html_node = text_node_to_html(text_node)
         children.append(html_node)
     return children
 
